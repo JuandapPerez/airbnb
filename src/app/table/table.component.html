@@ -1,0 +1,21 @@
+<div class="grid">
+  <div class="card" *ngFor="let lugar of lugares" (click)="abrirMenuLugar(lugar)">
+    <img [src]="lugar.imagen" alt="{{lugar.nombre}}">
+    <div class="info">
+      <h3>{{lugar.nombre}}, {{lugar.ciudad}}, {{lugar.pais}}</h3>
+      <p>${{lugar.precio}} / noche</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" *ngIf="lugarSeleccionado">
+  <div class="modal-content">
+    <span class="close" (click)="cerrarMenuLugar()">&times;</span>
+    <h2>{{lugarSeleccionado?.nombre}}</h2>
+    <img class="img" [src]="lugarSeleccionado?.imagen" alt="{{lugarSeleccionado?.nombre}}">
+    <p>{{lugarSeleccionado?.descripcion}}</p>
+    <p><strong>Precio:</strong> ${{lugarSeleccionado?.precio}} / noche</p>
+    <p><strong>Ubicación:</strong> {{lugarSeleccionado?.ciudad}}, {{lugarSeleccionado?.pais}}</p>
+  </div>
+</div>
